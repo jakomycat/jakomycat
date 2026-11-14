@@ -1,7 +1,7 @@
 <!-- Profile README for github.com/jakomycat — search for "TODO" before publishing. -->
 
 <p align="center">
-  <img src="./assets/header.svg" width="100%" alt="Jacobo Chalarca Vásquez — Scientific Machine Learning: PINNs, neural operators, numerical PDEs. Animated Burgers equation forming a shock while its Fourier spectrum spreads past the modes an FNO keeps.">
+  <img src="./assets/header.svg" width="100%" alt="Jacobo Chalarca Vásquez — Scientific Machine Learning: PINNs, neural operators, numerical PDEs. Animated tracer particles flowing through a von Kármán vortex street.">
 </p>
 
 <p align="center">
@@ -12,50 +12,38 @@
 
 ### About
 
-<table>
-  <tr><td><b>Studying</b></td><td>B.Sc. Computer Science, Universidad Nacional de Colombia, Manizales (graduating 2027)</td></tr>
-  <tr><td><b>Main focus</b></td><td>Scientific ML: PINNs, neural operators (FNO, DeepONet), numerical PDEs</td></tr>
-  <tr><td><b>Also</b></td><td>Interpretability of language models</td></tr>
-  <tr><td><b>Now</b></td><td>Systematic study of padding and boundary conditions in Fourier Neural Operators</td></tr>
-  <tr><td><b>Teaching</b></td><td>Teaching assistant, <i>Intro to Computer Science</i> and <i>Machine Learning</i> (2024-2 to 2026-1)</td></tr>
-  <tr><td><b>Open to</b></td><td>Research internships in SciML / scientific computing, summer 2027 <!-- TODO: adjust or remove --></td></tr>
-  <tr><td><b>Contact</b></td><td><!-- TODO: institutional email · ORCID · Google Scholar · CV --></td></tr>
-</table>
+- **Studying:** B.Sc. Computer Science, Universidad Nacional de Colombia, Manizales (graduating 2027)
+- **Main focus:** Scientific ML, including PINNs, neural operators (FNO, DeepONet) and numerical PDEs
+- **Also:** interpretability of language models
+- **Teaching:** teaching assistant for *Intro to Computer Science* and *Machine Learning* (2024-2 to 2026-1)
+- **Open to:** research internships in SciML / scientific computing, summer 2027 <!-- TODO: adjust or remove -->
+- **Contact:** <!-- TODO: institutional email · ORCID · Google Scholar · CV -->
 
 <img src="./assets/divider.svg" width="100%" alt="">
 
-### Scientific ML
+### Scientific ML projects
 
-<p align="center">
-  <a href="https://github.com/jakomycat/sciml-learning-hub"><img src="./assets/card-sciml-hub.svg" width="49%" alt="sciml-learning-hub: from-scratch PyTorch re-implementations of PINNs, DeepONet and FNO"></a>
-  <!-- TODO: wrap the next image in <a href="..."> when the FNO repo is public -->
-  <img src="./assets/card-fno-padding.svg" width="49%" alt="FNO padding × boundaries: which padding a Fourier Neural Operator should use for each boundary condition (in progress)">
-</p>
+#### Padding and boundary conditions in Fourier Neural Operators &nbsp;`in progress`
 
-**Re-implemented from scratch** in [`sciml-learning-hub`](https://github.com/jakomycat/sciml-learning-hub):
+Fourier Neural Operators compute their spectral convolutions with the FFT, which assumes the domain is periodic. Non-periodic problems are usually handled by padding the input, but the choice of padding is rarely examined. This project compares zero, reflect, replicate and Fourier-continuation padding, at several padding lengths, under periodic, Dirichlet, Neumann and absorbing boundary conditions. Every setting uses the same FNO and several random seeds. The goal is a practical guide to which padding to use, and how much of it, for each type of boundary.
 
-| Paper | Year | What's there |
-|:--|:--:|:--|
-| Raissi, Perdikaris & Karniadakis, *Physics-informed neural networks* | 2019 | [data-driven solutions and discovery of PDEs](https://github.com/jakomycat/sciml-learning-hub/tree/main/papers/2019_raissi_pinns) |
-| Lu et al., *DeepONet* | 2021 | [operator learning as a PDE solver](https://github.com/jakomycat/sciml-learning-hub/tree/main/papers/2021_lu_deeponet) |
-| Li et al., *Fourier Neural Operator* | 2021 | [architecture](https://github.com/jakomycat/sciml-learning-hub/tree/main/papers/2021_li_fno) · experiments in progress |
-
-**Next up:** <!-- TODO: keep only what you're comfortable making public -->
-
-| Idea | Stage |
-|:--|:--|
-| Can a neural operator trained only on **low-fidelity solver data** beat the solver it learned from? | exploring |
-| **μP for PINNs**: transfer learning-rate and loss weights when scaling width | exploring |
-| Neural operators across **Reynolds numbers** in 2D Navier–Stokes: a spectral diagnosis of why they fail | thesis candidate |
+*Work in progress: no code or results are public yet.*
 
 <img src="./assets/divider.svg" width="100%" alt="">
 
-### Interpretability
+### Interpretability projects
 
-<p align="center">
-  <a href="https://github.com/jakomycat/does-beto-learn-like-bert"><img src="./assets/card-beto.svg" width="49%" alt="does-beto-learn-like-bert: layer-wise probing study comparing Spanish BETO and English BERT (preprint)"></a>
-  <a href="https://github.com/jakomycat/logit-lens-vs-tuned-lens"><img src="./assets/card-lens.svg" width="49%" alt="logit-lens-vs-tuned-lens: reading GPT-2's hidden layers with logit lens vs tuned lens"></a>
-</p>
+#### Does BETO learn like BERT?
+
+This project reproduces four classic analyses of what BERT encodes at each layer (Jawahar et al., 2019) and extends them to Spanish with BETO. The four analyses are phrase chunking, nine probing tasks, subject–verb agreement, and compositional structure with tensor product decomposition networks. Every experiment runs over five seeds. Randomly initialised encoders serve as a control, separating what pretraining adds from what the architecture already provides. Comparisons use paired t-tests with Benjamini–Hochberg correction.
+
+**Repository →** [jakomycat/does-beto-learn-like-bert](https://github.com/jakomycat/does-beto-learn-like-bert)
+
+#### Logit Lens vs. Tuned Lens
+
+This project compares two ways of reading the intermediate layers of GPT-2 Small. The logit lens decodes every hidden state with the model's final unembedding. The tuned lens first learns an affine map for each layer. The two are compared on KL divergence to the final output, mean reciprocal rank, cumulative hit rate, and the first layer that predicts correctly, broken down by prompt type: knowledge, arithmetic, sequences and syntax.
+
+**Repository →** [jakomycat/logit-lens-vs-tuned-lens](https://github.com/jakomycat/logit-lens-vs-tuned-lens)
 
 <img src="./assets/divider.svg" width="100%" alt="">
 
@@ -64,4 +52,4 @@
 `Python` `PyTorch` `NumPy` `Hugging Face Transformers` `Jupyter` `LaTeX` `Git`
 <!-- TODO: add/remove to match what you actually use -->
 
-<p align="right"><sub>The header and the learning-hub card show a real numerical solution of Burgers' equation (ν = 0.01/π), the PINN benchmark from Raissi et al.</sub></p>
+<p align="right"><sub>Header: tracer particles advected through a von Kármán vortex street (point-vortex model, co-moving frame, RK4).</sub></p>
