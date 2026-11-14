@@ -53,7 +53,7 @@ This project reproduces four classic analyses of what BERT encodes at each layer
 
 **Repository →** [jakomycat/does-beto-learn-like-bert](https://github.com/jakomycat/does-beto-learn-like-bert)
 
-#### <img src="./assets/tier-c.svg" height="22" alt="Tier C"> &nbsp;Logit Lens vs. Tuned Lens
+#### <img src="./assets/tier-d.svg" height="22" alt="Tier C"> &nbsp;Logit Lens vs. Tuned Lens
 
 This project compares two ways of reading the intermediate layers of GPT-2 Small. The logit lens decodes every hidden state with the model's final unembedding. The tuned lens first learns an affine map for each layer. The two are compared on KL divergence to the final output, mean reciprocal rank, cumulative hit rate, and the first layer that predicts correctly, broken down by prompt type: knowledge, arithmetic, sequences and syntax.
 
